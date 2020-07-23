@@ -1,0 +1,13 @@
+{
+    "name": "Where's Cohort 20?", // name of plugin
+    "version": "1.0",
+    "description": "Find your favorite cohort people",
+    "manifest_version": 2,
+    "content_scripts": [
+        {
+            "matches" : ["<all_urls>"], // if you only want it to run on certain pages
+            "js" : ["main.js"]
+        }
+    ]
+}
+  
