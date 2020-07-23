@@ -1,4 +1,9 @@
 console.log(document);
+document.documentElement.clientWidth
+console.log('client width', document.documentElement.clientWidth)
+console.log('inner height:', window.innerHeight)
+console.log('inner width:', window.innerWidth)
+
 
 let fellowInt = randomizer(7); // update max if we don't do all fellows
 let fellowsArr = ['Duygu', 'Kieran', 'Denis', 'Joju', 'Zac', 'Keriann', 'Allison'];
@@ -90,7 +95,7 @@ console.log("selectedFellow: ", selectedFellow.name);
 
 // elements that don't have multiples
 let infobox = document.querySelector('.infobox').getBoundingClientRect();
-let plainlist = document.querySelector('.plainlist').getBoundingClientRect();
+let plainlist = document.querySelector('.mbox-small').getBoundingClientRect();
 let catlinks = document.querySelector('#catlinks').getBoundingClientRect();
 let toc = document.querySelector('.toc').getBoundingClientRect();
 // let simpleSearch = document.querySelector('#simpleSearch').getBoundingClientRect();
@@ -101,7 +106,7 @@ let toc = document.querySelector('.toc').getBoundingClientRect();
 
 // elements that have multiple instances
 let thumbInt = randomizer(3);
-let thumbObj = document.querySelectorAll('.thumb');
+let thumbObj = document.querySelectorAll('.thumbinner');
 let thumbRandom = thumbObj[thumbInt].getBoundingClientRect(); 
 // console.log("!!!thumbinnerInt:", thumbinnerInt)
 // console.log("!!!thumbinnerObj:", thumbinnerObj)
@@ -119,8 +124,12 @@ let wikitableRandom = wikitableObj[wikitableInt].getBoundingClientRect();
 // console.log("!!!wikitableObj5:", wikitableObj[5])
 // console.log('wikitableRandom: ', wikitableRandom);
 
+// ==========
+// BELOW I REPLACED CATLINKS WITH ANOTHER THUMBRANDOM
+// ==========
+
 // final array to pick a random element from:
-let elementArr = [infobox, plainlist, catlinks, toc, thumbRandom, wikitableRandom];
+let elementArr = [infobox, plainlist, thumbRandom, toc, thumbRandom, wikitableRandom];
 let elementInt = randomizer(6);
 let elementRandom = elementArr[elementInt]; // selection
 // console.log("elementArr: ", elementArr)
@@ -159,7 +168,7 @@ if (sideRandom === elementRandom.left) {
 }
 // console.log("right true or false:", sideRandom === elementRandom.right);
 if (sideRandom === elementRandom.right) {
-  finalLeft += elementRandom.width + 45;
+  finalLeft += elementRandom.width - 5;
 }
 // console.log("top true or false:", sideRandom === elementRandom.top);
 if (sideRandom === elementRandom.top) {
@@ -167,7 +176,7 @@ if (sideRandom === elementRandom.top) {
 }
 // console.log("bottom true or false:", sideRandom === elementRandom.bottom);
 if (sideRandom === elementRandom.bottom) {
-  finalTop += elementRandom.height - 10;
+  finalTop += elementRandom.height - 5;
 }
 
 console.log("Final Top Position: ", finalTop)
