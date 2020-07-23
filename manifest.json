@@ -1,13 +1,24 @@
 {
-    "name": "Where's Cohort 20?", // name of plugin
+    "name": "Where's Cohort 20?",
     "version": "1.0",
     "description": "Find your favorite cohort people",
     "manifest_version": 2,
+    "icons": {
+        "16": "waldo.png"
+    },
     "content_scripts": [
         {
-            "matches" : ["<all_urls>"], // if you only want it to run on certain pages
-            "js" : ["main.js"]
+            "matches" : ["<all_urls>"],
+            "js" : ["main.js"],
+            "css": ["style.css"],
+            "run_at": "document_end"
         }
-    ]
+    ],
+    "browser_action": {
+        "default_icon": "waldo.png",
+        "default_title": "Where's Waldo",
+        "default_popup": "popup.html"   
+    },
+    "permissions": ["activeTab", "declarativeContent", "storage", "<all_urls>"]
 }
   
